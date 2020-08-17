@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %} Thank You! {% endblock %}
+
+{% block content %}
+
+<h1>Thank You!</h1>
+
+<h3>You have completed the survey</h3>
+
+<form action="/complete">
+    <button>Return Home</button>
+</form>
+<h1>{{session['responses']}}</h1>
+
+
+
+{% endblock %}

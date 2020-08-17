@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} Question {{idx + 1}} {% endblock %}
+
+{% block content %}
+
+<h1>{{survey.questions[idx].question}}</h1>
+
+    <form action="/answer" method="POST">
+
+        {% for answer in survey.questions[idx].choices %}
+
+        <input type="radio" name="answer" value="{{answer}}">
+        <label for="{answer}">{{answer}}</label>
+
+        {% endfor %}
+
+        <br><br>
+
+        {% if survey.questions[idx].allow_text %}
+        <input type="text" name="comment">
+        {% endif %}
+
+        <button>Submit Answer</button>
+
+    </form>
+
+    <h1>{{session['responses']}}</h1>
+
+{% endblock %}
+
+<!-- <input type="radio" id="huey" name="drone" value="huey" -->
+         <!-- checked> -->
+  <!-- <label for="huey">Huey</label> -->
